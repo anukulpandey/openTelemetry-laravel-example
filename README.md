@@ -24,7 +24,15 @@ composer install
 
 ---
 
-## Step 3. Run the app with OpenTelemetry instrumentation
+## Step 3. Copy environment variables
+
+```sh
+cp .env.example .env
+php artisan key:generate
+```
+---
+
+## Step 4. Run the app with OpenTelemetry instrumentation
 
 ```sh
 env OTEL_PHP_AUTOLOAD_ENABLED=true \
