@@ -1,4 +1,3 @@
-# openTelemetry-laravel-example
 # SigNoz Laravel Sample App
 
 Step 1. Clone the repository
