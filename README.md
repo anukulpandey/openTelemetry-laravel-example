@@ -1,15 +1,32 @@
 # SigNoz Laravel Sample App
 
-Step 1. Clone the repository
+📘 **Official Laravel Instrumentation Guide:**
+[https://signoz.io/docs/instrumentation/opentelemetry-laravel/](https://signoz.io/docs/instrumentation/opentelemetry-laravel/)
 
-```
-git clone https://github.com/UnCool-0x/signoz-laravel-sample-app
+This repository demonstrates how to run a Laravel application already configured with **OpenTelemetry Automatic Instrumentation** and send traces to **SigNoz Cloud**.
+
+---
+
+## Step 1. Clone the repository
+
+```sh
+git clone https://github.com/signoz/openTelemetry-laravel-example
+cd openTelemetry-laravel-example
 ```
 
-Step 2. Run the app
+---
 
-```
+## Step 2. Install dependencies
+
+```sh
 composer install
+```
+
+---
+
+## Step 3. Run the app with OpenTelemetry instrumentation
+
+```sh
 env OTEL_PHP_AUTOLOAD_ENABLED=true \
     OTEL_SERVICE_NAME=<service_name> \
     OTEL_TRACES_EXPORTER=otlp \
@@ -18,5 +35,10 @@ env OTEL_PHP_AUTOLOAD_ENABLED=true \
     OTEL_EXPORTER_OTLP_HEADERS=signoz-ingestion-key=<your-ingestion-key> \
     OTEL_PROPAGATORS=baggage,tracecontext \
     php -S localhost:8080 -t public public/index.php
-
 ```
+
+### Replace:
+
+* `<service_name>` → name of your service
+* `<region>` → your SigNoz Cloud region (example: `us`, `in`)
+* `<your-ingestion-key>` → your SigNoz ingestion key
